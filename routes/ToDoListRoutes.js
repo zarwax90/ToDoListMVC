@@ -5,12 +5,13 @@ const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const routeur = Router();
 
-// voir tous les messages
-// insérer une nouvelle valeur
-// effacer un message choisi par ID (parameters)
+// voir toutes les tâches
+// insérer une nouvelle tâche
+// modifier une tâche par id
+// supprimer une tâche par id 
 routeur.get('/todo', ToDoListController.ToDoList_affichage)
     .post('/todo/ajouter', urlencodedParser, ToDoListController.ToDoList_creation)
     .post('/todo/modifier/:id', urlencodedParser, ToDoListController.ToDoList_modifier)
-    .get('/todo/supprimer/:id', ToDoListController.ToDoList_suppression)
+    .get('/todo/supprimer/:id', ToDoListController.ToDoList_suppression);
 
 module.exports = routeur;
